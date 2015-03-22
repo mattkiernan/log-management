@@ -1,0 +1,8 @@
+<%= form_for @business do |form| %>
+  <%= form.text_field :name %>
+  <%= form.submit %>
+<% end %>
+
+<ul>
+  <%= render @businesses %>
+</ul>

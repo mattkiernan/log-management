@@ -1,0 +1,11 @@
+<%= @business.name %>
+
+<%= form_for @new_product do |form| %>
+  <%= form.text_field :name %>
+  <%= form.hidden_field :business_id, value: @business.id %>
+  <%= form.submit %>
+<% end %>
+
+<table>
+  <%= render @products %>
+</table>
