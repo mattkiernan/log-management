@@ -16,7 +16,7 @@ class BusinessesController < ApplicationController
   def show
     @business = Business.find(params[:id])
     @new_product = @business.products.new
-    @products = @business.products
+    @products = Product.where(business_id: @business.id)
   end
 
   private

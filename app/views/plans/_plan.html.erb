@@ -1,1 +1,5 @@
-<li><%= link_to plan.name, plan %></li>
+<tr>
+  <td><%= link_to plan.name, plan %></td>
+  <td><%= plan.user_limit %></td>
+  <td><%= plan.retention_period %></td>
+</tr>

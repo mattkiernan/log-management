@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root("dashboards#show")
+  root("businesses#index")
   resource :dashboard, only: [:show]
   resources :businesses
   resources :products

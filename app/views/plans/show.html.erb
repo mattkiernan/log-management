@@ -7,11 +7,21 @@
   <%= form.text_field :annual_cost, placeholder: "Annual cost" %>
   <%= form.text_field :additional_annual_fee, placeholder: "Additional annual fee" %>
   <%= form.text_field :perpetual_cost, placeholder: "Perpetual cost" %>
-  <%= form.text_field :billing_frequency, placeholder: "Type" %>
+  <%= form.text_field :billing_frequency, placeholder: "Billing frequency" %>
 
   <%= form.submit %>
 <% end %>
 
 <table>
+  <thead>
+    <tr>
+      <th>GB/day</th>
+      <th>Monthly cost</th>
+      <th>Annual cost</th>
+      <th>Additional annucal fee</th>
+      <th>Perpetual cost</th>
+      <th>Billing frequency</th>
+    </tr>
+  </thead>
   <%= render @cost_structures %>
 </table>
