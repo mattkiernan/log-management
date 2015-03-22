@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150322144651) do
+ActiveRecord::Schema.define(version: 20150322175118) do
 
   create_table "businesses", force: :cascade do |t|
     t.string   "name"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20150322144651) do
   end
 
   create_table "cost_structures", force: :cascade do |t|
-    t.string   "type"
     t.integer  "gb_per_day"
     t.integer  "monthly_cost"
     t.integer  "annual_cost"
@@ -29,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150322144651) do
     t.integer  "plan_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.string   "billing_frequency"
   end
 
   add_index "cost_structures", ["plan_id"], name: "index_cost_structures_on_plan_id"
