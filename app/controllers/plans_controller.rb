@@ -14,6 +14,11 @@ class PlansController < ApplicationController
     end
   end
 
+  def edit
+    @plan = Plan.find(params[:id])
+    @product = @plan.product
+  end
+
   def update
     @plan= Plan.find(params[:id])
     if @plan.update(plan_params)
@@ -25,8 +30,17 @@ class PlansController < ApplicationController
 
   def show
     @plan = Plan.find(params[:id])
+    @product = @plan.product
     @cost_structure = @plan.cost_structures.new
-    @cost_structures = @plan.cost_structures
+    @cost_structures = CostStructure.where(plan_id: @plan.id)
+    @product_features = ProductFeature.where(product_id: @product.id)
+  end
+
+  def destroy
+    @plan = Plan.find(params[:id])
+    @product = @plan.product
+    @plan.destroy
+    redirect_to @product
   end
 
   private

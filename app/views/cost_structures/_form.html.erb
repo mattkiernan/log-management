@@ -1,0 +1,12 @@
+<%= form_for cost_structure do |form| %>
+  <%= form.hidden_field :plan_id, value: plan.id %>
+  <%= form.text_field :gb_per_day, placeholder: "GB/day" %>
+  <%= form.text_field :monthly_cost, placeholder: "Monthly cost" %>
+  <%= form.text_field :annual_cost, placeholder: "Annual cost" %>
+  <%= form.text_field :additional_annual_fee, placeholder: "Additional annual fee" %>
+  <%= form.text_field :perpetual_cost, placeholder: "Perpetual cost" %>
+  <%= form.text_field :billing_frequency, placeholder: "Billing frequency" %>
+
+  <%= form.submit %>
+<% end %>
+

@@ -1,19 +1,16 @@
 <%= @product.name %>
 
-<%= form_for @plan do |form| %>
-  <%= form.text_field :name, placeholder: "Name" %>
-  <%= form.text_field :user_limit, placeholder: "User limit"%>
-  <%= form.text_field :retention_period, placeholder: "Retention period" %>
-  <%= form.hidden_field :product_id, value: @product.id %>
-  <%= form.submit %>
-<% end %>
+<%= render "plans/form", plan: @plan, product: @product %>
 
 <table>
   <thead>
     <tr>
+      <th>Business</th>
       <th>Plan name</th>
       <th>User limit</th>
       <th>Retention period</th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <%= render @plans %>

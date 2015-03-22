@@ -1,20 +1,11 @@
 <%= @plan.name %>
 
-<%= form_for @cost_structure do |form| %>
-  <%= form.hidden_field :plan_id, value: @plan.id %>
-  <%= form.text_field :gb_per_day, placeholder: "GB/day" %>
-  <%= form.text_field :monthly_cost, placeholder: "Monthly cost" %>
-  <%= form.text_field :annual_cost, placeholder: "Annual cost" %>
-  <%= form.text_field :additional_annual_fee, placeholder: "Additional annual fee" %>
-  <%= form.text_field :perpetual_cost, placeholder: "Perpetual cost" %>
-  <%= form.text_field :billing_frequency, placeholder: "Billing frequency" %>
-
-  <%= form.submit %>
-<% end %>
+<%= render "cost_structures/form", plan: @plan, cost_structure: @cost_structure %>
 
 <table>
   <thead>
     <tr>
+      <th>Id</th>
       <th>GB/day</th>
       <th>Monthly cost</th>
       <th>Annual cost</th>
@@ -25,6 +16,9 @@
   </thead>
   <%= render @cost_structures %>
 </table>
+
+<h2>Product Features</h2>
+<%= render @product_features %>
 
 <%= form_for @plan do |form| %>
   <%= form.collection_check_boxes(
