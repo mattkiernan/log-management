@@ -1,6 +1,6 @@
 class CostStructuresController < ApplicationController
   def index
-    @structures = CostStructures.all
+    @structures = CostStructure.all
     @structure = CostStructure.new
   end
 
