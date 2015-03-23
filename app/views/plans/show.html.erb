@@ -17,13 +17,15 @@
   <%= render @cost_structures %>
 </table>
 
+
 <h2>Product Features</h2>
 <%= render @product_features %>
 
+<h2>Plan Features</h2>
 <%= form_for @plan do |form| %>
   <%= form.collection_check_boxes(
     :feature_ids,
-    Feature.all,
+    @plan_features,
     :id,
     :description) %>
   <%= form.submit %>

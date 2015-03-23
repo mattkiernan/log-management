@@ -34,6 +34,8 @@ class PlansController < ApplicationController
     @cost_structure = @plan.cost_structures.new
     @cost_structures = CostStructure.where(plan_id: @plan.id)
     @product_features = ProductFeature.where(product_id: @product.id)
+    product_feature_ids = @product_features.map{ |product_feature| product_feature.feature_id }
+    @plan_features = Feature.where("id not in (?)", product_feature_ids)
   end
 
   def destroy
