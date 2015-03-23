@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150322175118) do
+ActiveRecord::Schema.define(version: 20150322235416) do
 
   create_table "businesses", force: :cascade do |t|
     t.string   "name"
@@ -34,10 +34,13 @@ ActiveRecord::Schema.define(version: 20150322175118) do
   add_index "cost_structures", ["plan_id"], name: "index_cost_structures_on_plan_id"
 
   create_table "features", force: :cascade do |t|
-    t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "offering_type"
+    t.integer  "offering_id"
   end
+
+  add_index "features", ["offering_id"], name: "index_features_on_offering_id"
 
   create_table "plan_features", force: :cascade do |t|
     t.integer  "plan_id"
@@ -48,6 +51,12 @@ ActiveRecord::Schema.define(version: 20150322175118) do
 
   add_index "plan_features", ["feature_id"], name: "index_plan_features_on_feature_id"
   add_index "plan_features", ["plan_id"], name: "index_plan_features_on_plan_id"
+
+  create_table "plan_offerings", force: :cascade do |t|
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "plans", force: :cascade do |t|
     t.string   "name"
@@ -69,6 +78,12 @@ ActiveRecord::Schema.define(version: 20150322175118) do
 
   add_index "product_features", ["feature_id"], name: "index_product_features_on_feature_id"
   add_index "product_features", ["product_id"], name: "index_product_features_on_product_id"
+
+  create_table "product_offerings", force: :cascade do |t|
+    t.string   "product_offering"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
